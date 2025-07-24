@@ -81,7 +81,8 @@
             </intent-filter>
         </activity>
         <receiver
-            android:name=".StealthReceiver">
+            android:name=".StealthReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.bintianqi.owndroid.HIDE_APP" />
                 <action android:name="com.bintianqi.owndroid.UNHIDE_APP" />
