@@ -2,6 +2,7 @@ package com.bintianqi.owndroid
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -21,6 +22,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.bintianqi.owndroid.ui.MyScaffold
+import com.bintianqi.owndroid.ui.SwitchItem
 
 @Composable
 fun StealthSettingsScreen(onNavigateUp: () -> Unit) {
@@ -45,7 +48,7 @@ fun StealthSettingsScreen(onNavigateUp: () -> Unit) {
             // Stealth Mode Toggle
             SwitchItem(
                 title = R.string.enable_stealth_mode,
-                checked = isStealthEnabled,
+                state = isStealthEnabled,
                 onCheckedChange = { enabled ->
                     val success = StealthManager.setStealthMode(context, enabled)
                     if (success) {
@@ -94,7 +97,7 @@ fun StealthSettingsScreen(onNavigateUp: () -> Unit) {
             },
             confirmButton = {
                 Button(onClick = { showTokenDialog = false }) {
-                    Text(stringResource(R.string.ok))
+                    Text(stringResource(R.string.confirm))
                 }
             }
         )
@@ -121,27 +124,10 @@ fun StealthSettingsScreen(onNavigateUp: () -> Unit) {
             },
             confirmButton = {
                 Button(onClick = { showCommandsDialog = false }) {
-                    Text(stringResource(R.string.ok))
+                    Text(stringResource(R.string.confirm))
                 }
             }
         )
     }
 }
 
-@Composable
-private fun SwitchItem(
-    title: Int,
-    checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit
-) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        Text(stringResource(title))
-        Switch(
-            checked = checked,
-            onCheckedChange = onCheckedChange
-        )
-    }
-}
