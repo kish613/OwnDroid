@@ -135,6 +135,7 @@ fun SettingsScreen(onNavigateUp: () -> Unit, onNavigate: (Any) -> Unit) {
                 FunctionItem(title = R.string.api, icon = R.drawable.code_fill0) { onNavigate(ApiSettings) }
             if (privilege.device && !privilege.dhizuku)
                 FunctionItem(R.string.notifications, icon = R.drawable.notifications_fill0) { onNavigate(Notifications) }
+            FunctionItem(title = R.string.stealth_mode, icon = R.drawable.visibility_off_fill0) { onNavigate(StealthSettings) }
             FunctionItem(title = R.string.about, icon = R.drawable.info_fill0) { onNavigate(About) }
         }
     }
@@ -351,6 +352,7 @@ fun NotificationsScreen(onNavigateUp: () -> Unit) = MyScaffold(R.string.notifica
     }
 }
 
+@Serializable object StealthSettings
 @Serializable object About
 
 @Composable

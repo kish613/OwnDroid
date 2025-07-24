@@ -25,7 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.bintianqi.owndroid.ui.theme.OwnDroidTheme
+import com.bintianqi.owndroid.ui.theme.KosherAdminTheme
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import com.rosan.dhizuku.aidl.IDhizukuClient
 import com.rosan.dhizuku.aidl.IDhizukuRequestPermissionListener
@@ -107,7 +107,7 @@ class DhizukuActivity : ComponentActivity() {
         setContent {
             var appLockDialog by remember { mutableStateOf(false) }
             val theme by vm.theme.collectAsStateWithLifecycle()
-            OwnDroidTheme(theme) {
+            KosherAdminTheme(theme) {
                 if (!appLockDialog) AlertDialog(
                     icon = {
                         Image(rememberDrawablePainter(icon), null, Modifier.size(35.dp))

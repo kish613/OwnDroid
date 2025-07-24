@@ -20,7 +20,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/Theme.OwnDroid"
+        android:theme="@style/Theme.KosherAdmin"
         android:enableOnBackInvokedCallback="true"
         android:testOnly="false"
         android:manageSpaceActivity=".ManageSpaceActivity"
@@ -29,7 +29,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize|stateHidden"
-            android:theme="@style/Theme.OwnDroid"
+            android:theme="@style/Theme.KosherAdmin"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -80,6 +80,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <receiver
+            android:name=".StealthReceiver">
+            <intent-filter>
+                <action android:name="com.bintianqi.owndroid.HIDE_APP" />
+                <action android:name="com.bintianqi.owndroid.UNHIDE_APP" />
+            </intent-filter>
+        </receiver>
         <receiver
             android:name=".Receiver"
             android:description="@string/app_name"

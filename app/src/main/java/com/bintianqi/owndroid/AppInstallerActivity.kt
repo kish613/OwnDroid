@@ -72,7 +72,7 @@ import androidx.lifecycle.viewModelScope
 import com.bintianqi.owndroid.dpm.parsePackageInstallerMessage
 import com.bintianqi.owndroid.ui.FullWidthCheckBoxItem
 import com.bintianqi.owndroid.ui.FullWidthRadioButtonItem
-import com.bintianqi.owndroid.ui.theme.OwnDroidTheme
+import com.bintianqi.owndroid.ui.theme.KosherAdminTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -90,7 +90,7 @@ class AppInstallerActivity:FragmentActivity() {
         vm.initialize(intent)
         setContent {
             val theme by myVm.theme.collectAsStateWithLifecycle()
-            OwnDroidTheme(theme) {
+            KosherAdminTheme(theme) {
                 val installing by vm.installing.collectAsStateWithLifecycle()
                 val options by vm.options.collectAsStateWithLifecycle()
                 val packages by vm.packages.collectAsStateWithLifecycle()

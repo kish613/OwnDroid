@@ -63,7 +63,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.bintianqi.owndroid.ui.theme.OwnDroidTheme
+import com.bintianqi.owndroid.ui.theme.KosherAdminTheme
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -80,7 +80,7 @@ class PackageChooserActivity: ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val theme by vm.theme.collectAsStateWithLifecycle()
-            OwnDroidTheme(theme) {
+            KosherAdminTheme(theme) {
                 AppChooserScreen(ApplicationsList(false), {
                     setResult(0, Intent().putExtra("package", it))
                     finish()

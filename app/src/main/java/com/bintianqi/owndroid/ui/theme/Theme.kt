@@ -93,7 +93,7 @@ private val darkScheme = darkColorScheme(
 )
 
 @Composable
-fun OwnDroidTheme(
+fun KosherAdminTheme(
     theme: ThemeSettings,
     content: @Composable () -> Unit
 ) {

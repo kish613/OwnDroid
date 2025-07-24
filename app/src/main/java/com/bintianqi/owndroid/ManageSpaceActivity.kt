@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.core.content.edit
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.bintianqi.owndroid.ui.theme.OwnDroidTheme
+import com.bintianqi.owndroid.ui.theme.KosherAdminTheme
 import kotlin.system.exitProcess
 
 class ManageSpaceActivity: FragmentActivity() {
@@ -26,7 +26,7 @@ class ManageSpaceActivity: FragmentActivity() {
         val vm by viewModels<MyViewModel>()
         setContent {
             val theme by vm.theme.collectAsStateWithLifecycle()
-            OwnDroidTheme(theme) {
+            KosherAdminTheme(theme) {
                 var appLockDialog by remember { mutableStateOf(!SharedPrefs(this).lockPasswordHash.isNullOrEmpty()) }
                 if(appLockDialog) {
                     AppLockDialog({ appLockDialog = false }, ::finish)

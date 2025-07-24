@@ -235,13 +235,14 @@ import com.bintianqi.owndroid.dpm.WorkModes
 import com.bintianqi.owndroid.dpm.WorkModesScreen
 import com.bintianqi.owndroid.dpm.WorkProfile
 import com.bintianqi.owndroid.dpm.WorkProfileScreen
+import com.bintianqi.owndroid.StealthSettingsScreen
 import com.bintianqi.owndroid.dpm.dhizukuErrorStatus
 import com.bintianqi.owndroid.dpm.dhizukuPermissionGranted
 import com.bintianqi.owndroid.dpm.getDPM
 import com.bintianqi.owndroid.dpm.getReceiver
 import com.bintianqi.owndroid.dpm.setDefaultAffiliationID
 import com.bintianqi.owndroid.ui.Animations
-import com.bintianqi.owndroid.ui.theme.OwnDroidTheme
+import com.bintianqi.owndroid.ui.theme.KosherAdminTheme
 import com.rosan.dhizuku.api.Dhizuku
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -263,7 +264,7 @@ class MainActivity : FragmentActivity() {
         setContent {
             var appLockDialog by rememberSaveable { mutableStateOf(false) }
             val theme by vm.theme.collectAsStateWithLifecycle()
-            OwnDroidTheme(theme) {
+            KosherAdminTheme(theme) {
                 Home(vm) { appLockDialog = true }
                 if (appLockDialog) {
                     AppLockDialog({ appLockDialog = false }) { moveTaskToBack(true) }
@@ -470,6 +471,7 @@ fun Home(vm: MyViewModel, onLock: () -> Unit) {
         composable<ApiSettings> { ApiSettings(::navigateUp) }
         composable<Notifications> { NotificationsScreen(::navigateUp) }
         composable<About> { AboutScreen(::navigateUp) }
+        composable<StealthSettings> { StealthSettingsScreen(::navigateUp) }
     }
     DisposableEffect(lifecycleOwner) {
         val sp = SharedPrefs(context)
